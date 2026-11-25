@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import type { TargetAudience } from '../../types';
 import {
-  Shield,
   X,
   Mail,
   Lock,
@@ -121,8 +120,8 @@ export const AuthModal: React.FC = () => {
             <X className="w-5 h-5" />
           </button>
 
-          <div className="w-12 h-12 mx-auto mb-2.5 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-inner">
-            <Shield className="w-6 h-6 text-emerald-300 stroke-[2.2]" />
+          <div className="w-16 h-16 mx-auto mb-2.5 rounded-2xl bg-white p-1.5 flex items-center justify-center border border-white/40 shadow-md">
+            <img src="/logo.png" alt="KRYPTO GUARD Logo" className="w-full h-full object-contain" />
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 border border-emerald-400/30 text-[11px] font-semibold mb-1">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
-import { Shield, PhoneCall, ExternalLink, Heart, AlertTriangle } from 'lucide-react';
+import { PhoneCall, ExternalLink, Heart, AlertTriangle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { setCurrentScreen, setShowJargonModal } = useApp();
@@ -47,8 +47,8 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="space-y-3 md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#0F766E] flex items-center justify-center text-white">
-                <Shield className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-lg bg-white p-1 flex items-center justify-center shadow-xs">
+                <img src="/logo.png" alt="KRYPTO GUARD Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-extrabold text-lg tracking-tight text-white">
                 KRYPTO<span className="text-teal-400">GUARD</span>

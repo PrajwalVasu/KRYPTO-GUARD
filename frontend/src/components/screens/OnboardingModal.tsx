@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import type { TargetAudience } from '../../types';
-import { Shield, GraduationCap, HeartHandshake, UserCheck, ArrowRight, CheckCircle2, Volume2, Sparkles } from 'lucide-react';
+import { GraduationCap, HeartHandshake, UserCheck, ArrowRight, CheckCircle2, Volume2, Sparkles } from 'lucide-react';
 
 // Explicitly type the personas array so the `id` property is recognised as TargetAudience.
 const personas: { id: TargetAudience; title: string; subtitle: string; icon: React.ReactNode }[] = [
@@ -57,8 +57,8 @@ export const OnboardingModal: React.FC = () => {
       <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto flex flex-col">
         {/* Banner */}
         <div className="relative bg-gradient-to-br from-[#0F766E] via-[#115E59] to-[#0F172A] p-6 sm:p-8 text-white text-center">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-inner">
-            <Shield className="w-10 h-10 text-emerald-300 stroke-[2.2]" />
+          <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 rounded-2xl bg-white p-2 flex items-center justify-center border border-white/40 shadow-lg">
+            <img src="/logo.png" alt="KRYPTO GUARD Logo" className="w-full h-full object-contain" />
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-200 border border-emerald-400/30 text-xs font-semibold mb-2">
             <Sparkles className="w-3.5 h-3.5" />

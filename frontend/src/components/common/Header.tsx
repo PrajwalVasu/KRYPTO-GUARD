@@ -1,6 +1,7 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
-import { Shield, PhoneCall, VolumeX, Eye, BookOpen, User, GraduationCap, HeartHandshake, LogIn, LogOut } from 'lucide-react';
+
+import { PhoneCall, VolumeX, Eye, BookOpen, User, GraduationCap, HeartHandshake, LogIn, LogOut } from 'lucide-react';
 import type { TargetAudience } from '../../types';
 
 export const Header: React.FC = () => {
@@ -26,6 +27,8 @@ export const Header: React.FC = () => {
     setAuthError,
     setAuthModalMessage
   } = useApp();
+
+
 
   const audienceLabels: { id: TargetAudience; label: string; icon: React.ReactNode; desc: string }[] = [
     { id: 'all', label: language === 'hi' ? 'सभी के लिए' : 'All Topics', icon: <User className="w-3.5 h-3.5" />, desc: 'Complete fraud safety guide' },
@@ -79,8 +82,8 @@ export const Header: React.FC = () => {
             onClick={() => setCurrentScreen('home')}
             className="flex items-center gap-2.5 cursor-pointer group"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#0F766E] to-[#115E59] flex items-center justify-center text-white shadow-md shadow-teal-900/10 group-hover:scale-105 transition-transform">
-              <Shield className="w-6 h-6 stroke-[2.2]" />
+            <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-white border border-slate-200/90 p-1 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform overflow-hidden">
+              <img src="/logo.png" alt="KRYPTO GUARD Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
@@ -193,6 +196,8 @@ export const Header: React.FC = () => {
             >
               <Eye className="w-4 h-4" />
             </button>
+
+
 
             {/* Language Switcher */}
             <button
