@@ -240,14 +240,14 @@ export const EmergencyScreen: React.FC = () => {
 
                 <div>
                   <span className="text-slate-400 block text-[10px] uppercase font-semibold">Fraud Email:</span>
-                  <span className="font-mono text-slate-600 text-[11px] select-all">
+                  <span className="font-mono text-slate-600 text-[11px] select-all break-all">
                     {bank.fraudEmail}
                   </span>
                 </div>
 
                 <div className="pt-1">
                   <span className="text-slate-400 block text-[10px] uppercase font-semibold">Instant Card Block:</span>
-                  <p className="text-[11px] text-slate-700 bg-slate-50 p-2 rounded-lg border border-slate-200 font-mono">
+                  <p className="text-[11px] text-slate-700 bg-slate-50 p-2 rounded-lg border border-slate-200 font-mono break-words">
                     {bank.smsBlockCode}
                   </p>
                 </div>

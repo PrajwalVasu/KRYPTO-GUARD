@@ -141,19 +141,19 @@ export const ScamCheckerScreen: React.FC = () => {
       {/* Main Analysis Input Box */}
       <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
         {/* Input Mode Tabs */}
-        <div className="flex items-center border-b border-slate-100 bg-slate-50/70 p-2 gap-2">
+        <div className="flex items-center border-b border-slate-100 bg-slate-50/70 p-2 gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar">
           <button
             onClick={() => {
               setActiveTab('text');
               setAnalysisResult(null);
             }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 whitespace-nowrap ${
               activeTab === 'text'
                 ? 'bg-white text-[#0F766E] shadow-2xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            <MessageSquare className="w-4 h-4" />
+            <MessageSquare className="w-4 h-4 shrink-0" />
             <span>SMS / WhatsApp Message</span>
           </button>
 
@@ -162,13 +162,13 @@ export const ScamCheckerScreen: React.FC = () => {
               setActiveTab('url');
               setAnalysisResult(null);
             }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 whitespace-nowrap ${
               activeTab === 'url'
                 ? 'bg-white text-[#0F766E] shadow-2xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            <Globe className="w-4 h-4" />
+            <Globe className="w-4 h-4 shrink-0" />
             <span>Suspicious Link / URL</span>
           </button>
 
@@ -177,19 +177,19 @@ export const ScamCheckerScreen: React.FC = () => {
               setActiveTab('call');
               setAnalysisResult(null);
             }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 whitespace-nowrap ${
               activeTab === 'call'
                 ? 'bg-white text-[#0F766E] shadow-2xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            <PhoneCall className="w-4 h-4" />
+            <PhoneCall className="w-4 h-4 shrink-0" />
             <span>Phone Call / Caller Demands</span>
           </button>
         </div>
 
         {/* Text Area */}
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4">
           <label className="block text-xs font-bold text-slate-700">
             {activeTab === 'text'
               ? 'Paste the complete SMS, WhatsApp text, or Telegram message below:'
@@ -254,7 +254,7 @@ export const ScamCheckerScreen: React.FC = () => {
       {analysisResult && (
         <div className="space-y-6 animate-in fade-in duration-300">
           <div
-            className={`rounded-3xl p-6 sm:p-8 border shadow-lg ${
+            className={`rounded-3xl p-4 sm:p-8 border shadow-lg ${
               analysisResult.riskLevel === 'high'
                 ? 'bg-rose-50 border-rose-300 text-rose-950'
                 : analysisResult.riskLevel === 'suspicious'
@@ -263,9 +263,9 @@ export const ScamCheckerScreen: React.FC = () => {
             }`}
           >
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-current/15">
-              <div className="flex items-center gap-3.5">
+              <div className="flex items-start sm:items-center gap-3.5 min-w-0">
                 <div
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-white shadow-md ${
+                  className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center font-bold text-white shadow-md shrink-0 ${
                     analysisResult.riskLevel === 'high'
                       ? 'bg-rose-600'
                       : analysisResult.riskLevel === 'suspicious'
@@ -274,16 +274,16 @@ export const ScamCheckerScreen: React.FC = () => {
                   }`}
                 >
                   {analysisResult.riskLevel === 'high' ? (
-                    <AlertTriangle className="w-8 h-8" />
+                    <AlertTriangle className="w-7 h-7 sm:w-8 sm:h-8" />
                   ) : analysisResult.riskLevel === 'suspicious' ? (
-                    <ShieldAlert className="w-8 h-8" />
+                    <ShieldAlert className="w-7 h-7 sm:w-8 sm:h-8" />
                   ) : (
-                    <HelpCircle className="w-8 h-8" />
+                    <HelpCircle className="w-7 h-7 sm:w-8 sm:h-8" />
                   )}
                 </div>
 
-                <div>
-                  <div className="flex items-center gap-2">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span
                       className={`text-xs uppercase font-extrabold px-2.5 py-0.5 rounded-full ${
                         analysisResult.riskLevel === 'high'
@@ -303,7 +303,7 @@ export const ScamCheckerScreen: React.FC = () => {
                       Threat Score: {analysisResult.score}/100
                     </span>
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight mt-1">
+                  <h2 className="text-lg sm:text-2xl font-extrabold tracking-tight mt-1 break-words">
                     {analysisResult.summary}
                   </h2>
                 </div>

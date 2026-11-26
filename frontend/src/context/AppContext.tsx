@@ -10,9 +10,6 @@ interface AppContextType {
   fontSize: FontSize;
   setFontSize: (size: FontSize) => void;
   cycleFontSize: () => void;
-  highContrast: boolean;
-  setHighContrast: (val: boolean) => void;
-  toggleHighContrast: () => void;
   language: 'en' | 'hi';
   setLanguage: (lang: 'en' | 'hi') => void;
   toggleLanguage: () => void;
@@ -68,7 +65,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [currentScreen, setCurrentScreen] = useState<ScreenId>('home');
   const [targetAudience, setTargetAudience] = useState<TargetAudience>('all');
   const [fontSize, setFontSize] = useState<FontSize>('normal');
-  const [highContrast, setHighContrast] = useState<boolean>(false);
   const [language, setLanguage] = useState<'en' | 'hi'>('en');
   const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   const [showOnboarding, setShowOnboarding] = useState<boolean>(false);
@@ -104,16 +100,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     root.classList.remove('font-normal', 'font-large', 'font-xlarge');
     root.classList.add(`font-${fontSize}`);
   }, [fontSize]);
-
-  // Sync high contrast
-  useEffect(() => {
-    const root = document.documentElement;
-    if (highContrast) {
-      root.classList.add('high-contrast');
-    } else {
-      root.classList.remove('high-contrast');
-    }
-  }, [highContrast]);
 
   // Check if first-time user
   useEffect(() => {
@@ -432,7 +418,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     else setFontSize('normal');
   };
 
-  const toggleHighContrast = () => setHighContrast(prev => !prev);
   const toggleLanguage = () => setLanguage(prev => (prev === 'en' ? 'hi' : 'en'));
 
   // Web Speech API Voice Assistance
@@ -480,9 +465,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         fontSize,
         setFontSize,
         cycleFontSize,
-        highContrast,
-        setHighContrast,
-        toggleHighContrast,
         language,
         setLanguage,
         toggleLanguage,

@@ -20,7 +20,7 @@ export const JargonBusterModal: React.FC = () => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-in fade-in duration-200">
       <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-100 overflow-hidden">
         {/* Header */}
-        <div className="p-6 bg-gradient-to-r from-teal-800 to-[#0F766E] text-white flex items-center justify-between">
+        <div className="p-4 sm:p-6 bg-gradient-to-r from-teal-800 to-[#0F766E] text-white flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
               <BookOpen className="w-5 h-5 text-white" />
@@ -53,11 +53,11 @@ export const JargonBusterModal: React.FC = () => {
         </div>
 
         {/* Content List */}
-        <div className="p-6 overflow-y-auto space-y-4 divide-y divide-slate-100">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4 divide-y divide-slate-100">
           {filtered.map((item, idx) => (
             <div key={idx} className="pt-4 first:pt-0 space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex flex-wrap items-center gap-2 min-w-0">
                   <h3 className="font-bold text-base text-[#0F172A]">{item.term}</h3>
                   {item.hindiTerm && (
                     <span className="text-xs font-semibold px-2 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/50">

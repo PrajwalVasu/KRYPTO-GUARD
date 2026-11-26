@@ -154,7 +154,7 @@ export const LearnScreen: React.FC = () => {
                   <div className="p-3 rounded-2xl bg-slate-50 group-hover:scale-105 transition-transform">
                     {getCategoryIcon(scam.icon)}
                   </div>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex flex-wrap items-center justify-end gap-1.5">
                     {isCompleted && (
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">
                         <CheckCircle2 className="w-3 h-3" /> Learned
@@ -206,7 +206,7 @@ export const LearnScreen: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200 overflow-y-auto">
           <div className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-100 overflow-hidden my-auto">
             {/* Modal Header */}
-            <div className="p-6 bg-gradient-to-r from-[#0F766E] to-[#115E59] text-white flex items-start justify-between gap-4">
+            <div className="p-4 sm:p-6 bg-gradient-to-r from-[#0F766E] to-[#115E59] text-white flex items-start justify-between gap-3 sm:gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-white/20 text-emerald-100">
@@ -253,7 +253,7 @@ export const LearnScreen: React.FC = () => {
             </div>
 
             {/* Scrollable Content */}
-            <div className="p-6 sm:p-8 overflow-y-auto space-y-8">
+            <div className="p-4 sm:p-8 overflow-y-auto space-y-6 sm:space-y-8">
               {/* Overview */}
               <div>
                 <h3 className="text-sm font-bold uppercase tracking-wider text-teal-900 mb-2">
@@ -307,12 +307,12 @@ export const LearnScreen: React.FC = () => {
 
                 {/* Simulated Message Preview Box */}
                 {activeScam.realLifeScenario.messagePreview && (
-                  <div className="bg-slate-900 text-slate-100 rounded-xl p-4 text-xs font-mono border border-slate-800 space-y-1.5 shadow-inner">
-                    <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-slate-800 pb-1 font-sans">
-                      <span>Sender: {activeScam.realLifeScenario.messagePreview.sender}</span>
+                  <div className="bg-slate-900 text-slate-100 rounded-xl p-3.5 sm:p-4 text-xs font-mono border border-slate-800 space-y-1.5 shadow-inner overflow-x-auto">
+                    <div className="flex flex-wrap items-center justify-between gap-1 text-[11px] text-slate-400 border-b border-slate-800 pb-1 font-sans">
+                      <span className="break-all">Sender: {activeScam.realLifeScenario.messagePreview.sender}</span>
                       <span>{activeScam.realLifeScenario.messagePreview.timestamp}</span>
                     </div>
-                    <p className="text-emerald-300 font-sans text-xs pt-1">
+                    <p className="text-emerald-300 font-sans text-xs pt-1 break-words">
                       {activeScam.realLifeScenario.messagePreview.body}
                     </p>
                   </div>
@@ -429,7 +429,7 @@ export const LearnScreen: React.FC = () => {
                 )}
               </div>
 
-              <div className="flex items-center justify-end gap-2">
+              <div className="flex flex-wrap items-center justify-end gap-2">
                 <button
                   onClick={() => {
                     setSelectedScamId(null);

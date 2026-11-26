@@ -161,8 +161,8 @@ export const HomeScreen: React.FC = () => {
                 </span>
                 <span className="text-teal-200 text-[11px]">Lessons Studied</span>
               </div>
-              <div className="bg-white/10 p-2.5 rounded-xl">
-                <span className="block text-lg font-bold text-white">
+              <div className="bg-white/10 p-2.5 rounded-xl min-w-0">
+                <span className="block text-sm sm:text-lg font-bold text-white break-words">
                   {isAuthenticated && progress
                     ? progress.reflexScore.isCalibrated
                       ? `${progress.reflexScore.score}/100`
@@ -232,7 +232,7 @@ export const HomeScreen: React.FC = () => {
                   }
                 }}
               >
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                   <span className="font-medium text-slate-900">{wc.categoryTitle}</span>
                   {wc.isLessonCompleted ? (
                     <span className="text-xs px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">Lesson Completed</span>
@@ -340,7 +340,7 @@ export const HomeScreen: React.FC = () => {
               <Zap className="w-5 h-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs uppercase tracking-wider font-extrabold text-[#0F766E]">
                   Daily Cyber Shield Tip
                 </span>

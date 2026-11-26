@@ -111,7 +111,7 @@ export const AuthModal: React.FC = () => {
     >
       <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-100 overflow-hidden flex flex-col my-auto max-h-[92vh]">
         {/* Banner */}
-        <div className="relative bg-gradient-to-br from-[#0F766E] via-[#115E59] to-[#0F172A] p-6 text-white text-center">
+        <div className="relative bg-gradient-to-br from-[#0F766E] via-[#115E59] to-[#0F172A] p-4 sm:p-6 text-white text-center shrink-0">
           <button
             onClick={handleClose}
             aria-label="Close modal"
@@ -184,7 +184,7 @@ export const AuthModal: React.FC = () => {
         </div>
 
         {/* Form Body */}
-        <div className="p-6 overflow-y-auto space-y-4">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4">
           {/* Error Message */}
           {(localError || authError) && (
             <div className="p-3.5 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-2.5 text-xs text-rose-900 animate-in fade-in">
@@ -252,7 +252,7 @@ export const AuthModal: React.FC = () => {
                 <label className="block text-xs font-bold text-slate-700 mb-1.5">
                   Select Your Persona
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                   {personas.map((p) => {
                     const isSelected = audience === p.id;
                     return (
@@ -260,7 +260,7 @@ export const AuthModal: React.FC = () => {
                         key={p.id}
                         type="button"
                         onClick={() => setAudience(p.id)}
-                        className={`p-2.5 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all ${
+                        className={`p-2 sm:p-2.5 rounded-xl border flex flex-col items-center justify-center gap-1 transition-all ${
                           isSelected
                             ? 'border-teal-600 bg-teal-50/80 text-teal-900 font-bold shadow-2xs'
                             : 'border-slate-200 text-slate-600 hover:bg-slate-50'

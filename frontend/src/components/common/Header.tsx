@@ -1,7 +1,6 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
-
-import { PhoneCall, VolumeX, Eye, BookOpen, User, GraduationCap, HeartHandshake, LogIn, LogOut } from 'lucide-react';
+import { PhoneCall, VolumeX, BookOpen, User, GraduationCap, HeartHandshake, LogIn, LogOut } from 'lucide-react';
 import type { TargetAudience } from '../../types';
 
 export const Header: React.FC = () => {
@@ -12,8 +11,6 @@ export const Header: React.FC = () => {
     setTargetAudience,
     fontSize,
     cycleFontSize,
-    highContrast,
-    toggleHighContrast,
     language,
     toggleLanguage,
     isSpeaking,
@@ -39,18 +36,18 @@ export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
       {/* Emergency Hotline Top Ribbon */}
-      <div className="bg-[#0F766E] text-white px-4 py-1.5 text-xs sm:text-sm font-medium">
+      <div className="bg-[#0F766E] text-white px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 truncate">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-            <span className="font-semibold text-emerald-100">
-              {language === 'hi' ? 'आपातकालीन राष्ट्रीय साइबर हेल्पलाइन:' : 'National Cybercrime Helpline:'}
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-300 animate-pulse shrink-0" />
+            <span className="font-semibold text-emerald-100 truncate">
+              {language === 'hi' ? 'आपातकालीन हेल्पलाइन:' : 'Cyber Helpline:'}
             </span>
             <a
               href="tel:1930"
-              className="underline font-bold text-white hover:text-emerald-200 transition-colors flex items-center gap-1"
+              className="underline font-bold text-white hover:text-emerald-200 transition-colors flex items-center gap-1 shrink-0 whitespace-nowrap"
             >
-              <PhoneCall className="w-3 h-3 inline" /> 1930 (Toll-Free)
+              <PhoneCall className="w-3 h-3 inline" /> 1930 <span className="hidden xs:inline sm:inline">(Toll-Free)</span>
             </a>
           </div>
 
@@ -75,22 +72,22 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Main App Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-4">
           {/* Brand Logo */}
           <div
             onClick={() => setCurrentScreen('home')}
-            className="flex items-center gap-2.5 cursor-pointer group"
+            className="flex items-center gap-1.5 sm:gap-2.5 cursor-pointer group min-w-0"
           >
-            <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-white border border-slate-200/90 p-1 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform overflow-hidden">
+            <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-white border border-slate-200/90 p-1 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform overflow-hidden shrink-0">
               <img src="/logo.png" alt="KRYPTO GUARD Logo" className="w-full h-full object-contain" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="font-black text-xl sm:text-2xl tracking-tight text-[#0F172A]">
+                <span className="font-black text-sm sm:text-xl md:text-2xl tracking-tight text-[#0F172A] truncate">
                   KRYPTO<span className="text-[#0F766E]">GUARD</span>
                 </span>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-teal-50 text-[#0F766E] border border-teal-200/60 hidden sm:inline-block">
+                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-teal-50 text-[#0F766E] border border-teal-200/60 hidden sm:inline-block shrink-0">
                   Safety Shield
                 </span>
               </div>
@@ -157,13 +154,13 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Accessibility & Quick Controls Toolbar */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             {/* Audio Voice Assistance Stop/Status */}
             {isSpeaking && (
               <button
                 onClick={stopSpeaking}
                 title="Stop reading aloud"
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-teal-100 text-[#0F766E] border border-teal-300 text-xs font-bold animate-pulse"
+                className="flex items-center gap-1 px-2 py-1.5 rounded-lg bg-teal-100 text-[#0F766E] border border-teal-300 text-xs font-bold animate-pulse"
               >
                 <VolumeX className="w-4 h-4" />
                 <span className="hidden sm:inline">Mute Audio</span>
@@ -174,36 +171,20 @@ export const Header: React.FC = () => {
             <button
               onClick={cycleFontSize}
               title={`Change Text Size (Current: ${fontSize})`}
-              className="p-2 sm:px-2.5 sm:py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors flex items-center gap-1 text-xs font-bold"
+              className="px-1.5 py-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors flex items-center gap-0.5 sm:gap-1 text-[11px] sm:text-xs font-bold"
               aria-label="Adjust font size"
             >
-              <span className="text-sm">A</span>
-              <span className="text-xs text-teal-700 font-extrabold">
+              <span className="text-xs sm:text-sm">A</span>
+              <span className="text-[11px] sm:text-xs text-teal-700 font-extrabold">
                 {fontSize === 'normal' ? '1x' : fontSize === 'large' ? '1.2x' : '1.4x'}
               </span>
             </button>
-
-            {/* High Contrast Toggle */}
-            <button
-              onClick={toggleHighContrast}
-              title="Toggle High Contrast Mode"
-              className={`p-2 rounded-lg border transition-colors ${
-                highContrast
-                  ? 'bg-slate-900 text-amber-300 border-slate-900'
-                  : 'border-slate-200 text-slate-600 hover:bg-slate-100'
-              }`}
-              aria-label="Toggle high contrast"
-            >
-              <Eye className="w-4 h-4" />
-            </button>
-
-
 
             {/* Language Switcher */}
             <button
               onClick={toggleLanguage}
               title="Change Language"
-              className="px-2.5 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors text-xs font-bold"
+              className="px-2 py-1.5 sm:px-2.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors text-[11px] sm:text-xs font-bold"
             >
               {language === 'en' ? 'हिन्दी' : 'English'}
             </button>
@@ -219,20 +200,21 @@ export const Header: React.FC = () => {
 
             {/* Authentication Button & User Profile Controls */}
             {isAuthenticated && user ? (
-              <div className="flex items-center gap-1.5 pl-1 border-l border-slate-200">
+              <div className="flex items-center gap-1 sm:gap-1.5 pl-1 border-l border-slate-200">
                 <div
                   title={`Signed in as ${user.name} (${user.email})`}
-                  className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-teal-50 border border-teal-200/80 text-[#0F766E]"
+                  className="flex items-center gap-1.5 px-1.5 sm:px-2.5 py-1 rounded-xl bg-teal-50 border border-teal-200/80 text-[#0F766E]"
                 >
-                  <div className="w-5 h-5 rounded-full bg-[#0F766E] text-white text-[10px] font-black flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-full bg-[#0F766E] text-white text-[10px] font-black flex items-center justify-center shrink-0">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
-                  <span className="text-xs font-bold max-w-[90px] truncate">{user.name}</span>
+                  <span className="text-xs font-bold max-w-[90px] truncate hidden sm:inline">{user.name}</span>
                 </div>
                 <button
                   onClick={() => logout()}
                   title={language === 'hi' ? 'लॉग आउट' : 'Sign Out'}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50 transition-colors text-xs font-bold"
+                  aria-label={language === 'hi' ? 'लॉग आउट' : 'Sign Out'}
+                  className="flex items-center gap-1 px-2 py-1.5 sm:px-2.5 rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50 transition-colors text-xs font-bold"
                 >
                   <LogOut className="w-3.5 h-3.5" />
                   <span className="hidden md:inline">{language === 'hi' ? 'लॉग आउट' : 'Sign Out'}</span>
@@ -246,9 +228,9 @@ export const Header: React.FC = () => {
                     setAuthModalMessage(null);
                     setShowAuthModal(true);
                   }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold shadow-xs transition-all hover:scale-102"
+                  className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-[11px] sm:text-xs font-bold shadow-xs transition-all hover:scale-102 whitespace-nowrap"
                 >
-                  <LogIn className="w-3.5 h-3.5" />
+                  <LogIn className="w-3.5 h-3.5 shrink-0" />
                   <span>{language === 'hi' ? 'साइन इन' : 'Sign In'}</span>
                 </button>
               </div>

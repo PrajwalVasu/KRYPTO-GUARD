@@ -73,7 +73,7 @@ export const OnboardingModal: React.FC = () => {
         </div>
 
         {/* Modal body */}
-        <div className="p-6 sm:p-8 space-y-6 flex-1">
+        <div className="p-4 sm:p-8 space-y-5 sm:space-y-6 flex-1">
           {step === 1 ? (
             <>
               {/* Step 1: Persona selection */}
@@ -120,7 +120,7 @@ export const OnboardingModal: React.FC = () => {
               </div>
 
               {/* Language selection */}
-              <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
                   <span className="text-xs font-bold text-slate-700 block">Preferred Language</span>
                   <span className="text-[11px] text-slate-400">Can be changed anytime at the top</span>

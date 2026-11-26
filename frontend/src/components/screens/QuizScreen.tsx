@@ -300,7 +300,7 @@ export const QuizScreen: React.FC = () => {
           </button>
         </div>
       ) : !isCompleted && currentQ ? (
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-8 space-y-6">
+        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-4 sm:p-8 space-y-6">
           {/* Progress Header */}
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
@@ -431,7 +431,7 @@ export const QuizScreen: React.FC = () => {
 
           {/* Inline Submit Error */}
           {submitError && (
-            <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 flex items-center justify-between gap-2">
+            <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
                 <span>{submitError}</span>
@@ -447,7 +447,7 @@ export const QuizScreen: React.FC = () => {
           )}
 
           {/* Action Buttons */}
-          <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-slate-100">
             <span className="text-xs text-slate-400">
               {!answerFeedback ? 'Select an answer above to continue' : 'Review explanation and proceed'}
             </span>
@@ -482,7 +482,7 @@ export const QuizScreen: React.FC = () => {
         </div>
       ) : (
         /* Quiz Completed Screen */
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 text-center space-y-6 shadow-xl animate-in zoom-in-95 duration-200">
+        <div className="bg-white rounded-3xl border border-slate-200 p-5 sm:p-12 text-center space-y-6 shadow-xl animate-in zoom-in-95 duration-200">
           <div className="w-20 h-20 mx-auto rounded-3xl bg-teal-50 text-[#0F766E] flex items-center justify-center shadow-inner">
             <Award className="w-10 h-10 stroke-[2.2]" />
           </div>
